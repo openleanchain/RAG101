@@ -98,7 +98,7 @@ Before running the demo, you need to install a few Python libraries in your **vi
 3. Run this command **once**:
 
 ```bash
-   pip install pypdf sentence-transformers scikit-learn numpy
+   pip install pypdf sentence-transformers scikit-learn openai numpy
 ```
 
 ## 4. Running the demo

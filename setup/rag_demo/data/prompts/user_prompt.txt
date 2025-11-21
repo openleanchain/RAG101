@@ -2,7 +2,7 @@ Here are some text snippets from a book:
 
 {snippets}
 
-Student question: {question}
+User question: {question}
 
 Remember: answer only using these snippets. If the answer is not here,
 say "I don't know based on the book snippets."

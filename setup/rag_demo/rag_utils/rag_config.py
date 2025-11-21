@@ -26,16 +26,11 @@ EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 # RAG settings
 TOP_K = 3  # how many knowledge cards to retrieve
 
-# Azure OpenAI deployment name (NOT the raw model name)
-# This should match your Azure deployment, e.g. "gpt-4.1-mini"
-GPT_DEPLOYMENT_NAME = "gpt-4.1-mini"
-
 # Prompt templates (stored as plain text files)
 SYSTEM_PROMPT_PATH = PROMPT_DIR / "system_prompt.txt"
 USER_PROMPT_PATH = PROMPT_DIR / "user_prompt.txt"
 
 # Long-term memory log (JSONL: one JSON per line)
 CONVERSATION_LOG_PATH = OUTPUT_DIR / "conversation_log.jsonl"
-
 
 

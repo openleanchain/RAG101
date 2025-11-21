@@ -16,6 +16,7 @@ Note:
   or model deployment names. It only calls a generic LLM helper
   that returns JSON data + usage as Python dictionaries.
 """
+print("=== Start RAG demo... loading all the libraries and AI brain. It may take 1-2 minutes, please wait... ===")
 
 import os
 
@@ -23,7 +24,7 @@ from rag_utils.rag_config import PDF_PATH, KNOWLEDGE_LIBRARY_PATH
 from rag_utils.knowledge_library import build_and_save_knowledge_library, load_knowledge_library
 from rag_utils.retrieval import retrieve_top_k_cards
 from rag_utils.prompt_utils import build_augmented_messages
-# from rag_utils.rag_llm import call_llm_json
+from rag_utils.rag_llm import call_llm_json
 from rag_utils.memory_store import append_conversation_record
 
 
@@ -32,11 +33,12 @@ def main() -> None:
     print()
 
     # Step 1: Build the AI Knowledge Library only if it doesn't exist yet
+    print("=== Step 1: Build the AI Knowledge Library only if it doesn't exist yet ===")
     if not os.path.exists(KNOWLEDGE_LIBRARY_PATH):
-        print("Knowledge Library not found. Building it now...")
+        print("\tKnowledge Library not found. Building it now...")
         build_and_save_knowledge_library(PDF_PATH, KNOWLEDGE_LIBRARY_PATH)
     else:
-        print("Knowledge Library already exists. Skipping build step.")
+        print("\tKnowledge Library already exists. Skipping build step.")
 
     # Ask for a question
     print()
@@ -48,28 +50,36 @@ def main() -> None:
         return
 
     # Step 2: Load library
+    print("=== Step 2: Load the AI Knowledge Library from disk ===")
     print("\nLoading AI Knowledge Library from disk...")
     library = load_knowledge_library(KNOWLEDGE_LIBRARY_PATH)
 
     # Step 3: RETRIEVAL (R in RAG)
-    print("Step 3: Retrieval - finding best knowledge cards for the question...")
+    print("=== Step 3: Retrieval - finding best knowledge cards for the question ===")
     top_cards = retrieve_top_k_cards(user_question, library=library)
     for i, card in enumerate(top_cards, start=1):
+        content = card.get("text", "<no text>")
+        preview = (content[:75] + "...") if len(content) > 75 else content
         print(
-            f"  Top {i}: card_id={card['id']}, "
-            f"page={card['page']}, similarity={card['similarity']:.3f}"
+            f"  Top {i}: card_id={card.get('id')}, "
+            f"page={card.get('page')}, similarity={card['similarity']:.3f}, "
+            f"content='{preview}'"
         )
 
     # Step 4: AUGMENTED PROMPT (A in RAG)
-    print("\nStep 4: Augmented Prompt - building messages from templates...")
+    print("=== Step 4: Augmented Prompt - building messages from templates ===")
     messages = build_augmented_messages(user_question, top_cards)
+    print("\n--- Augmented Messages ---")
+    for msg in messages:
+        role = msg.get("role", "unknown")
+        content = msg.get("content", "")
+        print(f"[{role}]: {content[:100]}{'...' if len(content) > 100 else ''}")
 
     # Step 5: LLM CALL (G in RAG = Generation, using short-term memory only)
-    print("Step 5: LLM Call - sending augmented prompt to the language model...")
+    print("=== Step 5: LLM Call - sending augmented prompt to the language model ===")
     # This function hides ALL model/provider details.
     # It just returns Python dictionaries: {"data": ..., "usage": ...}
-    # llm_result = call_llm_json(messages=messages)
-    llm_result = None
+    llm_result = call_llm_json(messages=messages)
 
     if llm_result:
         # The LLM module has already parsed the JSON content for us.
@@ -87,7 +97,7 @@ def main() -> None:
         print("Total tokens:     ", usage.get("total_tokens"))
 
         # Step 6: LONG-TERM MEMORY (app-side memory, not the model's)
-        print("\nStep 6: Long-Term Memory - saving this conversation turn...")
+        print("=== Step 6: Long-Term Memory - saving this conversation turn ===")
         append_conversation_record(
             question=user_question,
             top_cards=top_cards,

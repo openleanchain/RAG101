@@ -21,33 +21,27 @@ No printing.
 No knowledge of retrieval or knowledge cards.
 
 All provider/model/client details are handled here, NOT in main().
-Credentials and endpoint config are expected to be handled by:
-    get_azure_openai_client()
-in your common.azure_client module (or similar).
 """
 
 from typing import Any, Dict, List, Optional
 import json
 
-from .rag_config import GPT_DEPLOYMENT_NAME
+from openai import AzureOpenAI
 
 try:
     # Shared helper that returns a configured AzureOpenAI client.
     # You provide this in your own codebase.
-    from common.azure_client import get_azure_openai_client
+    from common.bc_config import get_api_credentials, get_model_deployment_name
 except ImportError as e:
     raise ImportError(
-        "Please provide a 'get_azure_openai_client' helper in "
-        "common.azure_client (or update the import in rag_llm.py) "
-        "so we can create an AzureOpenAI client."
+        "Please provide common component for Azure OpenAI client credentials and model deployment name."
     ) from e
 
 
 def call_llm_json(
     messages: List[Dict[str, str]],
-    deployment_name: str = GPT_DEPLOYMENT_NAME,
     temperature: float = 0.2,
-    max_tokens: Optional[int] = None,
+    max_tokens: Optional[int] = 500,
 ) -> Dict[str, Any]:
     """
     Call Azure OpenAI chat completions and return JSON + usage as Python dicts.
@@ -56,8 +50,6 @@ def call_llm_json(
     ----------
     messages : list of {role, content}
         Already-built chat messages (system + user), e.g. from prompt_utils.
-    deployment_name : str
-        Azure OpenAI deployment name (NOT the base model name).
     temperature : float
         Sampling temperature for the model.
     max_tokens : Optional[int]
@@ -75,7 +67,9 @@ def call_llm_json(
             }
         }
     """
-    client = get_azure_openai_client()
+    # CREATE THE CLIENT (with credentials)
+    client = AzureOpenAI(**get_api_credentials())
+    deployment_name = get_model_deployment_name()
 
     kwargs: Dict[str, Any] = {
         "model": deployment_name,          # Azure deployment name

@@ -35,20 +35,20 @@ rag_demo/
   └─ data/
       ├─ data_sources/
       │   └─ book.pdf            # the PDF we will use
-      ├─ knowledge_base/
-      │   └─ knowledge_library.json   # created on first run
-      ├─ outputs/
-      │   └─ conversation_log.jsonl   # long-term memory (one JSON per line)
-      ├─ prompts/
-      │   ├─ system_prompt.txt   # tells the AI its role
-      │   └─ user_prompt.txt     # how we show snippets + question
-      └─ models/
+      ├─ knowledge_base/         # auto created on first run
+      │   └─ knowledge_library.json   
+      ├─ outputs/                # auto created on first run
+      │   └─ conversation_log.jsonl   # long-term memory (one JSON per line) 
+      ├─ prompts/                
+      │   ├─ system_prompt.txt   # system prompt template: tells the AI its role
+      │   └─ user_prompt.txt     # user prompt template: how we show snippets + question
+      └─ models/                 # auto created on first run or get zip from team lead
           └─ ... MiniLM files go here (see next section)
 ```
 You will mostly touch:
 - data/data_sources/book.pdf
 - rag_main.py
- - the two prompt files in data/prompts/ (if you want to change how the AI talks)
+ - the two prompt template files in data/prompts/ (if you want to change how the AI talks)
 
 ## 2. MiniLM model (local copy from a zip)
 
@@ -84,9 +84,8 @@ rag_demo/
           └─ models--sentence-transformers--all-MiniLM-L6-v2/
 ```
 
-Note: If you need to downloae this model by yourself. On the first run, if the MiniLM model is not already in data/models/,
-the sentence-transformers library may automatically download the model from Hugging Face and put it in a cache folder for your user account
-(for example under .cache/huggingface/hub), not inside this project folder. This may take a few minutes the very first time, but later runs will reuse the cached copy.
+Note: If you want to downloae this model by yourself. On the first run, if the MiniLM model is not already in data/models/,
+the sentence-transformers library may automatically download the model from Hugging Face and put it in a cache folder, which maybe in your user account (for example under .cache/huggingface/hub), or inside this project folder. This may take a few minutes the very first time, but later runs will reuse the cached copy.
 
 ## 3. Install required Python libraries
 
@@ -106,7 +105,7 @@ Before running the demo, you need to install a few Python libraries in your **vi
 2. Make sure the correct **Python environment** is selected.
 3. Open the **terminal** in VS Code  
    (menu: **View → Terminal**).
-4. In the terminal, run:
+4. Open a new terminal and click the triangle run button, or run the following script manually:
 
 ```bash
    python rag_main.py

@@ -16,7 +16,7 @@ Note:
   or model deployment names. It only calls a generic LLM helper
   that returns JSON data + usage as Python dictionaries.
 """
-print("=== Start RAG demo... loading all the libraries and AI brain. It may take 1-2 minutes, please wait... ===")
+print("=== Start RAG demo... loading all the libraries. It may take 1-2 minutes, please wait... ===")
 
 import os
 
@@ -109,3 +109,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

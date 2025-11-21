@@ -67,32 +67,10 @@ You can think of an **embedding** as a **secret number code** for a sentence:
 We use these number codes to:
 
 1. Turn all the knowledge cards from the PDF into embeddings.
-2. Turn the student’s question into an embedding.
+2. Turn the user’s question into an embedding.
 3. Compare the codes and find the **closest cards** (Retrieval step in RAG).
 
-To keep things fast for class, your teacher will provide a **separate zip file**
-that contains the MiniLM embedding model.  
-(We do **not** store this big model inside the GitHub repo.)
-
-> **Download link (to be added by teacher):**  
-> `<< MINI_LM_MODEL_ZIP_URL_HERE >>`
-
-### Steps for students
-
-1. Download the zip file from the link your teacher gives you.
-2. Unzip it into the `data/models/` folder inside this project.
-
-When you finish, it should look like:
-
-```text
-rag_demo/
-  └─ data/
-      └─ models/
-          └─ sentence-transformers_all-MiniLM-L6-v2_...   (and other files)
-
-
-## 2. MiniLM model (local copy from a zip)
-We will use the MiniLM embedding model that you can download from hugging face or get from your team lead.
+### How to setup
 1. Get the model zip file from your team lead.
 2. Unzip it into the `data/models/` folder inside this project.
 
@@ -103,6 +81,7 @@ rag_demo/
   └─ data/
       └─ models/
           └─ models--sentence-transformers--all-MiniLM-L6-v2/
+```
 
 ## 3. Running the demo
 

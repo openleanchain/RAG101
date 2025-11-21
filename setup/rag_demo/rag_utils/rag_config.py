@@ -17,7 +17,7 @@ MODEL_DIR = DATA_DIR / "models"
 PROMPT_DIR = DATA_DIR / "prompts"
 
 # PDF input and Knowledge Library output
-PDF_PATH = DATA_SOURCE_DIR / "user_guide.pdf"
+PDF_PATH = DATA_SOURCE_DIR / "book.pdf"
 KNOWLEDGE_LIBRARY_PATH = KNOWLEDGE_LIBRARY_DIR / "knowledge_library.json"
 
 # Embedding model (local, free)
@@ -36,5 +36,6 @@ USER_PROMPT_PATH = PROMPT_DIR / "user_prompt.txt"
 
 # Long-term memory log (JSONL: one JSON per line)
 CONVERSATION_LOG_PATH = OUTPUT_DIR / "conversation_log.jsonl"
+
 
 

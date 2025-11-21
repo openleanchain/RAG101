@@ -49,3 +49,24 @@ You will mostly touch:
 - rag_main.py
  - the two prompt files in data/prompts/ (if you want to change how the AI talks)
 
+## 2. MiniLM model (local copy from a zip)
+
+To keep things fast for class, your teacher will provide a **separate zip file**
+that contains the MiniLM embedding model.  
+(We do **not** store this big model inside the GitHub repo.)
+
+> **Download link (to be added by teacher):**  
+> `<< MINI_LM_MODEL_ZIP_URL_HERE >>`
+
+### Steps for students
+
+1. Download the zip file from the link your teacher gives you.
+2. Unzip it into the `data/models/` folder inside this project.
+
+When you finish, it should look like:
+
+```text
+rag_demo/
+  └─ data/
+      └─ models/
+          └─ sentence-transformers_all-MiniLM-L6-v2_...   (and other files)

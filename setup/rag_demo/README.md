@@ -44,3 +44,8 @@ rag_demo/
       └─ models/
           └─ ... MiniLM files go here (see next section)
 ```
+You will mostly touch:
+- data/data_sources/book.pdf
+- rag_main.py
+ - the two prompt files in data/prompts/ (if you want to change how the AI talks)
+

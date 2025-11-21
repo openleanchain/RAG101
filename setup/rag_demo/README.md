@@ -50,7 +50,7 @@ You will mostly touch:
  - the two prompt files in data/prompts/ (if you want to change how the AI talks)
 
 ## 2. MiniLM model (local copy from a zip)
-
+We will use the MiniLM embedding model that you can download from hugging face or get from your team lead.
 1. Get the model zip file from your team lead.
 2. Unzip it into the `data/models/` folder inside this project.
 
@@ -61,3 +61,23 @@ rag_demo/
   └─ data/
       └─ models/
           └─ models--sentence-transformers--all-MiniLM-L6-v2/
+
+## 3. Running the demo
+
+1. Open the `rag_demo` folder in **VS Code**.
+2. Make sure the correct **Python environment** is selected (your teacher will
+   have set this up).
+3. Open the **terminal** in VS Code  
+   (menu: **View → Terminal**).
+4. In the terminal, run:
+
+   ```bash
+   python rag_main.py
+  ```
+You’re now running the full RAG pipeline:
+- Build or reuse the AI Knowledge Library
+- Ask a question
+- Retrieve the best knowledge cards
+- Build an augmented prompt
+- Call the language model
+- Save the conversation into long-term memory

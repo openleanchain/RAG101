@@ -31,6 +31,7 @@ _embedding_model = None
 def get_embedding_model() -> SentenceTransformer:
     global _embedding_model
     if _embedding_model is None:
+        print("Loading the MiniLM embedding model (~90MB) into memory. This may take some time on the first use...")
         cache_dir = MODEL_DIR
         cache_dir.mkdir(exist_ok=True)
         _embedding_model = SentenceTransformer(
@@ -100,3 +101,4 @@ def load_knowledge_library(
     with open(path, "r", encoding="utf-8") as f:
         library: Dict[str, Any] = json.load(f)
     return library
+

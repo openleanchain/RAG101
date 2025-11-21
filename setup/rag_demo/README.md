@@ -83,11 +83,13 @@ rag_demo/
           └─ models--sentence-transformers--all-MiniLM-L6-v2/
 ```
 
-## 3. Running the demo
+Note: If you need to downloae this model by yourself. On the first run, if the MiniLM model is not already in data/models/,
+the sentence-transformers library may automatically download the model from Hugging Face and put it in a cache folder for your user account
+(for example under .cache/huggingface/hub), not inside this project folder. This may take a few minutes the very first time, but later runs will reuse the cached copy.
 
+## 3. Running the demo
 1. Open the `rag_demo` folder in **VS Code**.
-2. Make sure the correct **Python environment** is selected (your teacher will
-   have set this up).
+2. Make sure the correct **Python environment** is selected.
 3. Open the **terminal** in VS Code  
    (menu: **View → Terminal**).
 4. In the terminal, run:

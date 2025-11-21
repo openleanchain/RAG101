@@ -15,9 +15,10 @@ You only need to run one file: `rag_main.py`.
 
 ---
 
-## 1. Folder structure
+## 1. Download 
+Download this folder to your VS Code workfolder.
 
-When you open the project in VS Code, you should see something like:
+When you open the project in VS Code, you should see a new folder structure like:
 
 ```text
 rag_demo/
@@ -87,7 +88,20 @@ Note: If you need to downloae this model by yourself. On the first run, if the M
 the sentence-transformers library may automatically download the model from Hugging Face and put it in a cache folder for your user account
 (for example under .cache/huggingface/hub), not inside this project folder. This may take a few minutes the very first time, but later runs will reuse the cached copy.
 
-## 3. Running the demo
+## 3. Install required Python libraries
+
+Before running the demo, you need to install a few Python libraries in your **virtual environment**.
+
+1. Open the VS Code terminal  
+   (menu: **View → Terminal**).
+2. Make sure your virtual environment is activated.
+3. Run this command **once**:
+
+```bash
+   pip install pypdf sentence-transformers scikit-learn openai numpy
+```
+
+## 4. Running the demo
 1. Open the `rag_demo` folder in **VS Code**.
 2. Make sure the correct **Python environment** is selected.
 3. Open the **terminal** in VS Code  

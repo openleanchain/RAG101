@@ -21,7 +21,7 @@ Download this folder to your VS Code workfolder.
 When you open the project in VS Code, you should see a new folder structure like:
 
 ```text
-rag_demo/
+workshop2/rag_demo/
   ├─ rag_main.py                 # 🚀 main script you will run
   ├─ rag_utils/                  # helper modules used by main
   │   ├─ __init__.py

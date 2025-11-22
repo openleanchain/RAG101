@@ -1,6 +1,6 @@
 # IT Repair Hero Academy — RAG 101
 
-**Purpose:** This repository stores the **training content** for a follow-up course on **RAG 101: Retrieval-Augmented Generation (RAG)**. We build on Workshop 1 and show how to **use internal policies and procedures as an AI knowledge base**, so responses are grounded in **enterprise rules**, not just generic model knowledge.
+**Purpose:** This repository stores the **training content** for a follow-up course on **RAG 101: Retrieval-Augmented Generation (RAG)**. We build on Workshop 1 (GenAI 101 Beyond Chatbot) and show how to **use internal policies and procedures as an AI knowledge base**, so responses are grounded in **enterprise rules**, not just generic model knowledge.
 
 **Audience:** Anyone who has completed GenAI 101.
 

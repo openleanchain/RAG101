@@ -38,7 +38,8 @@ Use these as the four learning pillars for Workshop 2.
    **Focus:** Use **prompt templates** (system/user `.txt` files) to build an **augmented / grounded prompt** that combines:  
      - relevant policy snippets,  
      - the incident description, and  
-     - clear instructions for a **structured JSON triage result** (summary, severity, actions, next steps).  
+     - clear instructions for a **structured JSON triage result** (summary, severity, actions, next steps).
+    
    **Outcome:** Generate **policy-aligned, structured answers** that are traceable back to specific documents, not hallucinated.
 
 5. **🔗 Service Integration & Long-Term Memory**  

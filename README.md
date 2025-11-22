@@ -16,7 +16,7 @@ Use these as the four learning pillars for Workshop 2.
 - **Knowledge Base Builder** — *Turn internal policies and procedures into a searchable, vectorized knowledge base that AI can understand and reuse.*  
 - **Relevant Info Retriever** — *Use embedding search to pull back the most relevant policy sections for any incident or query.*  
 - **Grounded Prompt Designer** — *Build augmented (grounded) prompts that feed the right policy snippets into the LLM so answers follow enterprise rules.*  
-- **Integration & Improvement Hero** — *Produce structured outputs that plug into existing systems (the GenAI 101 app, ticketing tools, dashboards) and log everything for audit and continuous improvement.*
+- **Integration & Improvement Hero** — *Generate structured outputs that plug into existing systems (the GenAI 101 app, ticketing tools, dashboards) and log everything for audit and continuous improvement.*
 
 ---
 
@@ -50,7 +50,8 @@ Use these as the four learning pillars for Workshop 2.
    **What you do:**  
    - Review the full pipeline you built: knowledge base → retrieval → grounded prompt templates → structured triage JSON → audit log.  
    - Compare the original GenAI 101 “LLM-only” triage with the new **RAG-powered triage** and discuss how the quality of decisions improved.  
-   - Explore extensions: using **vector databases** or **Azure AI Search**, using hybrid search for better accuracy, planning index refresh when policies change, and adding guardrails (e.g., enforcing severity enums, requiring policy references, forcing escalation when no relevant policy is found).  
+   - Explore extensions: using **vector databases** or **Azure AI Search**, using hybrid search to improve retrieval accuracy in real-world enterprise scenarios, planning index refresh when policies change, and adding guardrails (e.g., enforcing severity enums, requiring policy references, forcing escalation when no relevant policy is found).
+   - Complete the capstone and an 8‑question quiz (≈2 per section) to earn a certificate.  
    **Outcome:** See how the triage example is just one instance of a **broader enterprise RAG pattern** that can be applied to HR, finance, operations, and more.
 
 ---
@@ -72,33 +73,33 @@ workshop2/
   └─ exercises/        # Step-by-step Python exercises (Ex01–Ex08)
 ```
 **Note**:
-- rag_demo has its own README explaining how to set up the environment and download the MiniLM embedding model.
-- incident_rag reuses the same embedding model folder and focuses on enterprise patterns, not basic setup.
+- `rag_demo` has its own README explaining how to set up the environment and download the MiniLM embedding model.
+- `incident_rag` reuses the same embedding model folder and focuses on enterprise patterns, not basic setup.
 
 ---
 
 ## How to Use This Repo
 
-- Make sure you have completed the rag_demo setup under workshop2/rag_demo and can run the kids-style RAG demo.
-- Open the workshop2/incident_rag, workshop2/data, and workshop2/exercises folders in VS Code.
+- Make sure you have completed the `rag_demo` setup under `workshop2/rag_demo` and can run the RAG demo.
+- Open the `workshop2/incident_rag`, `workshop2/data`, and `workshop2/exercises` folders in VS Code.
 - Follow the exercises in order (Ex01 → Ex08). Each script is stand-alone runnable, but builds on a common set of modules:
   - build the knowledge base,
   - retrieve relevant policies,
-  - construct grounded prompts from data/prompts/,
+  - construct grounded prompts from `data/prompts/`,
   - call the LLM for structured triage,
-  - and log decisions for long-term memory in data/logs/.
+  - and log decisions for long-term memory in `data/logs/`.
 
 ---
  
 ## Progress & Gamification
 
-As in Workshop 1, progression is broken into small, visible steps:
+As in Workshop 1, progression is broken into **small, visible steps**:
 - Each exercise Ex01–Ex08 has a clear goal and “done” signal (e.g., a printed summary, a successful search, a JSON triage result, a new log entry).
 - Learners can see their progress from:
   - “I can load policies” → “I can search them” → “I can drive an LLM with them” → “I can expose a triage service with an audit trail.”
 - Optional challenges:
   - add a new policy document to the knowledge base,
-  - tune top_k retrieval or prompt wording to improve answer quality,
+  - tune `top_k` retrieval or prompt wording to improve answer quality,
   - imagine how the same pattern could support another domain (HR, finance, support).
 
 The final goal is a working **RAG-powered triage service** that feels like a “Version 2” of the Workshop 1 app: the same IT emergency storyline, but now **backed by your own knowledge base**, and a “**RAG Hero**” certificate to match your “**IT Repair Hero**” badge from Workshop 1.

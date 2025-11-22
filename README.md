@@ -52,7 +52,8 @@ Use these as the four learning pillars for Workshop 2.
    - Review the full pipeline you built: knowledge base → retrieval → grounded prompt templates → structured triage JSON → audit log.  
    - Compare the original GenAI 101 “LLM-only” triage with the new **RAG-powered triage** and discuss how the quality of decisions improved.  
    - Explore extensions: using **vector databases** or **Azure AI Search**, using hybrid search to improve retrieval accuracy in real-world enterprise scenarios, planning index refresh when policies change, and adding guardrails (e.g., enforcing severity enums, requiring policy references, forcing escalation when no relevant policy is found).
-   - Complete the capstone and an 8‑question quiz (≈2 per section) to earn a certificate.  
+   - Complete the capstone and an 8‑question quiz (≈2 per section) to earn a certificate.
+   
    **Outcome:** See how the triage example is just one instance of a **broader enterprise RAG pattern** that can be applied to HR, finance, operations, and more.
 
 ---

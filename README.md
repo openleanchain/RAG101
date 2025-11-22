@@ -15,7 +15,7 @@ Use these as the four learning pillars for Workshop 2.
 
 - **Knowledge Base Builder** — *Turn internal policies and procedures into a searchable, vectorized knowledge base that AI can understand and reuse.*  
 - **Relevant Info Retriever** — *Use embedding search to pull back the most relevant policy sections for any incident or query.*  
-- **Grounded Prompt Designer** — *Build augmented (grounded) prompts that feed the right policy snippets into the LLM so answers follow enterprise rules.*  
+- **Augmented Prompt Designer** — *Build augmented (grounded) prompts that feed the right policy snippets into the LLM so answers follow enterprise rules.*  
 - **Integration & Improvement Hero** — *Generate structured outputs that plug into existing systems (the GenAI 101 app, ticketing tools, dashboards) and log everything for audit and continuous improvement.*
 
 ---
@@ -36,9 +36,9 @@ Use these as the four learning pillars for Workshop 2.
 
 4. **🧱 Augmented Prompt & JSON Triage**  
    **Focus:** Use **prompt templates** (system/user `.txt` files) to build an **augmented / grounded prompt** that combines:  
-   - relevant policy snippets,  
-   - the incident description, and  
-   - clear instructions for a **structured JSON triage result** (summary, severity, actions, next steps).  
+     - relevant policy snippets,  
+     - the incident description, and  
+     - clear instructions for a **structured JSON triage result** (summary, severity, actions, next steps).  
    **Outcome:** Generate **policy-aligned, structured answers** that are traceable back to specific documents, not hallucinated.
 
 5. **🔗 Service Integration & Long-Term Memory**  

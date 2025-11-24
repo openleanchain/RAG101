@@ -51,6 +51,7 @@ You will mostly touch:
  - the two prompt template files in data/prompts/ (if you want to change how the AI talks)
 
 ## 2. MiniLM model (local copy from a zip)
+⚠️ You may **skip this step initially** and only perform it if you encounter issues with sentence transformer models in Step 4.
 
 In this project we use a small helper model called **MiniLM**.
 

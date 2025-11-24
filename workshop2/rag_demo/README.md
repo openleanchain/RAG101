@@ -16,7 +16,7 @@ You only need to run one file: `rag_main.py`.
 ---
 
 ## 1. Download 
-Download this folder to your VS Code workfolder.
+Go to https://github.com/openleanchain/RAG101/tree/main to download the repository as a ZIP file, then unzip it. Next, copy the **workshop2** folder to your VS Code workspace where you built workshop1.
 
 When you open the project in VS Code, you should see a new folder structure like:
 

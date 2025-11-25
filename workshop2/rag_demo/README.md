@@ -106,7 +106,7 @@ Before running the demo, you need to install a few Python libraries in your **vi
 2. Make sure the correct **Python environment** is selected.
 3. Open the **terminal** in VS Code  
    (menu: **View → Terminal**).
-4. Open a new terminal and click the triangle run button, or run the following script manually:
+4. Open a new terminal and **click the triangle run button**, or run the following script manually:
 
 ```bash
    python rag_main.py

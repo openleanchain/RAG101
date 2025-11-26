@@ -145,7 +145,10 @@ def call_triage_llm_with_tools(description: str,
     messages = triage_prompt.build_triage_messages(
         incident_text=description, policy_chunks=policy_chunks
     )
-    print("\n[INFO] Sending request to LLM with function calling...\n", messages)
+    print("\n[INFO] Sending request to LLM with function calling...\n")
+    for msg in messages:
+        print(f"\n--- {msg['role'].upper()} MESSAGE ---")
+        print(msg["content"])
     try:
         response = client.chat.completions.create(
             model=DEPLOYMENT_NAME,
@@ -160,6 +163,9 @@ def call_triage_llm_with_tools(description: str,
         sys.exit(1)
     
     msg = response.choices[0].message
+    # print the full response messages and tool calls for debugging
+    for element in msg.content, msg.tool_calls:
+        print("\n[DEBUG] Full LLM Response Message:\n", element)
     result_data: Dict[str, Any] = {}
 
     # For teaching: we assume the model always calls our tool once

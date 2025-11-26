@@ -1,0 +1,995 @@
+One more use case after fix all the bugs, got a good response:[DEBUG] First LLM Response: {
+  "summary": "The user's computer HDMI port is not functioning, preventing connection to external displays. This impacts the user's ability to use additional monitors or projectors.",
+  "severity": "NORMAL",
+  "actions_now": [
+    "Verify HDMI cable and external display functionality",
+    "Restart computer and check HDMI port for physical damage"
+  ],
+  "next_steps": [
+    "Update or reinstall display drivers",
+    "Schedule hardware inspection if issue persists"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": true,
+  "policy_refs": [
+    "Incident_Triage_Service_Policy.txt#Section3",
+    "Incident_Triage_Service_Policy.txt#Section5"
+  ],
+  "Alternative": "If immediate use of an external display is required, suggest using a USB-to-HDMI adapter or wireless display connection as a temporary workaround."
+}
+[DEBUG] Tool Calls: None
+
+=== Workflow Results ===
+Summary : The user's computer HDMI port is not functioning, preventing connection to external displays. This impacts the user's ability to use additional monitors or projectors.
+Severity: NORMAL
+
+Actions Now:
+  1. Verify HDMI cable and external display functionality
+  2. Restart computer and check HDMI port for physical damage
+
+Next Steps:
+  1. Update or reinstall display drivers
+  2. Schedule hardware inspection if issue persists
+
+Estimated Time (hours): 2.0
+
+Policy References:
+  - Incident_Triage_Service_Policy.txt#Section3
+  - Incident_Triage_Service_Policy.txt#Section5
+
+Incident triaged and logged (no escalation tool used).
+
+
+****************
+
+analyze the following outputrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/workshop2/exercises/ex07.py"
+=================Loading tools and libraries, may take 1-2 minutes, please wait...
+=== Ex07: RAG triage LLM (JSON result) ===
+Paste an incident description (or 'q' to quit).
+
+Incident: my server is down
+Loading policy index from disk...
+Loading MiniLM embedding model from: C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp\workshop2\rag_demo\data\models
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Incident_Triage_Service_Policy.txt / Section 11]
+- Severity CRISIS:
+  - Major impact or outage of a critical system.
+  - Affects many users or core business processes.
+  - Example: production database completely down, confirmed security breach.
+
+[Incident_Triage_Service_Policy.txt / Section 5]
+The triage service receives a short free-text description of an issue, such as:
+- "Printer not working in office 3B"
+- "API response time is very slow, timing out after 30 seconds"
+- "Database server is completely down, no connections possible"
+- "Security breach detected in production environment"
+
+[Metrics_and_Audit_Log_Policy.txt / Section 17]
+- “Validating input…”
+- “Building AI prompt…”
+- “Calling model…”
+- “LLM unavailable – falling back to rules…”
+- “Triggering email notification to incident list…”
+- “✅ Email sent successfully”
+- “No email required for NORMAL severity.”
+- “Done.”
+
+[INCIDENT_DESCRIPTION]
+my server is down
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+--- LLM JSON result ---
+{
+  "summary": "A server is reported as down, potentially impacting users or business processes depending on its role.",
+  "severity": "CRISIS",
+  "actions_now": [
+    "Notify incident response and technical teams immediately",
+    "Begin investigation to determine scope and root cause of the server outage"
+  ],
+  "next_steps": [
+    "Restore server functionality as quickly as possible",
+    "Communicate status updates to affected stakeholders",
+    "Perform post-incident analysis once resolved"
+  ],
+  "estimated_time_hours": 4.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "Incident_Triage_Service_Policy.txt#Section11",
+    "Incident_Triage_Service_Policy.txt#Section5"
+  ],
+  "Alternative": "If urgent access is needed, attempt to restart the server or switch to a backup system if available."
+}
+
+Usage: {'prompt_tokens': 795, 'completion_tokens': 183, 'total_tokens': 978}
+
+Incident: my laptop HDMI port is damaged, any alternative way to connect to my monitor?
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Alerting_and_Notification_Policy.txt / Section 6]
+- For severity ALERT:
+  - Send an email alert to the standard incident distribution list.
+  - Include a short summary, ticket_id, severity, and description.
+  - Log that an alert was sent so it appears in the “alerts_sent” list.
+
+[Alerting_and_Notification_Policy.txt / Section 7]
+- For severity CRISIS:
+  - Send email alerts to both the standard incident list and crisis escalation list.
+  - Use strong visual markers (for example, 🚨 in the subject) to signal urgency.
+  - Ensure the alert includes the highest priority level (P0) and a clear call to action.
+
+[Metrics_and_Audit_Log_Policy.txt / Section 12]
+- ticket_id
+- timestamp
+- summary
+- severity
+- severity_score or related numeric indicator
+
+[INCIDENT_DESCRIPTION]
+my laptop HDMI port is damaged, any alternative way to connect to my monitor?
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+--- LLM JSON result ---
+{
+  "summary": "User reports a damaged HDMI port on their laptop, impacting their ability to connect to an external monitor. No critical business disruption indicated.",
+  "severity": "NORMAL",
+  "actions_now": [
+    "Advise user to check for alternative display ports (e.g., USB-C, DisplayPort, VGA) on the laptop and monitor.",
+    "Recommend using a compatible adapter or docking station if available."
+  ],
+  "next_steps": [
+    "If no alternative ports are available, initiate a hardware repair request for the laptop.",
+    "Document the incident and monitor for any escalation in impact."
+  ],
+  "estimated_time_hours": 4.0,
+  "requires_policy_update": true,
+  "policy_refs": [],
+  "Alternative": "If the user cannot wait, suggest using a USB-to-HDMI adapter or wireless display solutions (such as Miracast or Chromecast) as a temporary workaround."
+}
+
+Usage: {'prompt_tokens': 776, 'completion_tokens': 192, 'total_tokens': 968}
+
+Incident: my printer has jammed paper
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Incident_Triage_Service_Policy.txt / Section 5]
+The triage service receives a short free-text description of an issue, such as:
+- "Printer not working in office 3B"
+- "API response time is very slow, timing out after 30 seconds"
+- "Database server is completely down, no connections possible"
+- "Security breach detected in production environment"
+
+[Alerting_and_Notification_Policy.txt / Section 10]
+- Ticket ID
+- Severity
+- Short summary of the issue
+- Description of what was reported
+- Basic recommended actions or pointers to runbooks
+
+[Metrics_and_Audit_Log_Policy.txt / Section 15]
+Section 3: Processing Log
+
+[INCIDENT_DESCRIPTION]
+my printer has jammed paper
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+--- LLM JSON result ---
+{
+  "summary": "A printer has jammed paper, preventing normal printing operations. The impact is limited to the affected device and user.",
+  "severity": "NORMAL",
+  "actions_now": [
+    "Power off the printer and unplug it.",
+    "Carefully remove the jammed paper following the printer's manual."
+  ],
+  "next_steps": [
+    "Inspect the printer for any remaining debris or torn paper.",
+    "Test the printer by printing a test page after clearing the jam."
+  ],
+  "estimated_time_hours": 1.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "Incident_Triage_Service_Policy.txt#sec5",
+    "Alerting_and_Notification_Policy.txt#sec10"
+  ],
+  "Alternative": "If immediate resolution is needed, try gently pulling out the jammed paper without using excessive force, and check for any small fragments left inside before restarting the printer."
+}
+
+Usage: {'prompt_tokens': 733, 'completion_tokens': 198, 'total_tokens': 931}
+
+Incident: q
+Bye.
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp> & "C:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/.venv/Scripts/python.exe" "c:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/workshop2/exercises/ex08_enhanced.py"
+=================Loading tools and libraries, may take 1-2 minutes, please wait...
+=== Incident Triage with Function Calling ===
+This demo uses:
+- LLM function calling (tool_choice)
+- Automatic tool invocation (single step, teaching version)
+- Crisis escalation tool triggered on CRISIS severity
+
+Describe the incident: db server is down
+
+=== Calling LLM with Function Calling ===
+(Using temperature=0.1, max_tokens=500)
+Loading policy index from disk...
+Loading MiniLM embedding model from: C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp\workshop2\rag_demo\data\models
+
+[INFO] Sending request to LLM with function calling...
+
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Incident_Triage_Service_Policy.txt / Section 11]
+- Severity CRISIS:
+  - Major impact or outage of a critical system.
+  - Affects many users or core business processes.
+  - Example: production database completely down, confirmed security breach.
+
+[Incident_Triage_Service_Policy.txt / Section 5]
+The triage service receives a short free-text description of an issue, such as:
+- "Printer not working in office 3B"
+- "API response time is very slow, timing out after 30 seconds"
+- "Database server is completely down, no connections possible"
+- "Security breach detected in production environment"
+
+[Metrics_and_Audit_Log_Policy.txt / Section 17]
+- “Validating input…”
+- “Building AI prompt…”
+- “Calling model…”
+- “LLM unavailable – falling back to rules…”
+- “Triggering email notification to incident list…”
+- “✅ Email sent successfully”
+- “No email required for NORMAL severity.”
+- “Done.”
+
+[INCIDENT_DESCRIPTION]
+db server is down
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+[DEBUG] Full LLM Response Message:
+ None
+
+[DEBUG] Full LLM Response Message:
+ [ChatCompletionMessageFunctionToolCall(id='call_XxYCqJEfsa6tQUFcoJmlwg9X', function=Function(arguments='{"summary":"Database server is down, causing a major outage and preventing all connections. This impacts critical systems and potentially many users.","severity":"CRISIS","actions":["Notify on-call team immediately","Initiate database recovery procedures","Communicate outage to affected stakeholders"]}', name='escalate_crisis'), type='function')]
+
+[CALLING] escalate_crisis
+
+[TOOL] escalate_crisis called
+       Ticket ID: TICKET-164A6B
+       Severity : CRISIS
+       Summary  : Database server is down, causing a major outage and preventing all connections. This impacts critical systems and potentially many users.
+[EMAIL] Alert:
+        Subject: [CRISIS] TICKET-164A6B - Database server is down, causing a major outage and preventing all connections. This impacts critical systems and potentially many users.
+          Incident ID: TICKET-164A6B
+          Severity   : CRISIS
+
+          Required Actions:
+            1. Notify on-call team immediately
+            2. Initiate database recovery procedures
+            3. Communicate outage to affected stakeholders
+
+=== Workflow Results ===
+
+          Required Actions:
+            1. Notify on-call team immediately
+            2. Initiate database recovery procedures
+            3. Communicate outage to affected stakeholders
+
+=== Workflow Results ===
+          Required Actions:
+            1. Notify on-call team immediately
+            2. Initiate database recovery procedures
+            3. Communicate outage to affected stakeholders
+
+=== Workflow Results ===
+            1. Notify on-call team immediately
+            2. Initiate database recovery procedures
+            3. Communicate outage to affected stakeholders
+
+=== Workflow Results ===
+            2. Initiate database recovery procedures
+            3. Communicate outage to affected stakeholders
+
+=== Workflow Results ===
+            3. Communicate outage to affected stakeholders
+
+=== Workflow Results ===
+
+=== Workflow Results ===
+Summary : Database server is down, causing a major outage and preventing all connections. This impacts critical systems and potentially many users.
+Severity: CRISIS
+=== Workflow Results ===
+Summary : Database server is down, causing a major outage and preventing all connections. This impacts critical systems and potentially many users.
+Severity: CRISIS
+Summary : Database server is down, causing a major outage and preventing all connections. This impacts critical systems and potentially many users.
+Severity: CRISIS
+
+Actions Now:
+Severity: CRISIS
+
+Actions Now:
+  1. Notify on-call team immediately
+
+Actions Now:
+  1. Notify on-call team immediately
+Actions Now:
+  1. Notify on-call team immediately
+  2. Initiate database recovery procedures
+  3. Communicate outage to affected stakeholders
+  1. Notify on-call team immediately
+  2. Initiate database recovery procedures
+  3. Communicate outage to affected stakeholders
+  2. Initiate database recovery procedures
+  3. Communicate outage to affected stakeholders
+  3. Communicate outage to affected stakeholders
+
+
+Next Steps: (none)
+
+Policy References: (none)
+
+✓ Crisis escalated - Ticket: TICKET-164A6B
+
+=== Workflow Complete ===
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp> ^C
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp> & "C:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/.venv/Scripts/python.exe" "c:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/workshop2/exercises/ex08_enhanced.py"
+=================Loading tools and libraries, may take 1-2 minutes, please wait...
+=== Incident Triage with Function Calling ===
+This demo uses:
+- LLM function calling (tool_choice)
+- Automatic tool invocation (single step, teaching version)
+- Crisis escalation tool triggered on CRISIS severity
+
+Describe the incident: my laptop HDMI port is damaged, can't use external monitor
+
+=== Calling LLM with Function Calling ===
+(Using temperature=0.1, max_tokens=500)
+Loading policy index from disk...
+Loading MiniLM embedding model from: C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp\workshop2\rag_demo\data\models
+
+[INFO] Sending request to LLM with function calling...
+
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Metrics_and_Audit_Log_Policy.txt / Section 12]
+- ticket_id
+- timestamp
+- summary
+- severity
+- severity_score or related numeric indicator
+
+[Metrics_and_Audit_Log_Policy.txt / Section 17]
+- “Validating input…”
+- “Building AI prompt…”
+- “Calling model…”
+- “LLM unavailable – falling back to rules…”
+- “Triggering email notification to incident list…”
+- “✅ Email sent successfully”
+- “No email required for NORMAL severity.”
+- “Done.”
+
+[Alerting_and_Notification_Policy.txt / Section 10]
+- Ticket ID
+- Severity
+- Short summary of the issue
+- Description of what was reported
+- Basic recommended actions or pointers to runbooks
+
+[INCIDENT_DESCRIPTION]
+my laptop HDMI port is damaged, can't use external monitor
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+[ERROR] Failed to call OpenAI API: Error code: 400 - {'error': {'message': "The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': True, 'detected': True}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': False, 'severity': 'safe'}}}}}
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp> ^C
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp> & "C:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/.venv/Scripts/python.exe" "c:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/workshop2/exercises/ex08_enhanced.py"
+=================Loading tools and libraries, may take 1-2 minutes, please wait...
+=== Incident Triage with Function Calling ===
+This demo uses:
+- LLM function calling (tool_choice)
+- Automatic tool invocation (single step, teaching version)
+- Crisis escalation tool triggered on CRISIS severity
+
+Describe the incident: my computor HDMI port didn't work
+
+=== Calling LLM with Function Calling ===
+(Using temperature=0.1, max_tokens=500)
+Loading policy index from disk...
+Loading MiniLM embedding model from: C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp\workshop2\rag_demo\data\models
+
+[INFO] Sending request to LLM with function calling...
+
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Incident_Triage_Service_Policy.txt / Section 12]
+Section 3: Triage Output Fields
+
+[Incident_Triage_Service_Policy.txt / Section 3]
+It applies to all tickets created in the IT Repair Hero Academy demos and any future extensions of the triage service.
+
+[Incident_Triage_Service_Policy.txt / Section 4]
+Section 1: Incident Inputs and Scenarios
+
+[INCIDENT_DESCRIPTION]
+my computor HDMI port didn't work
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+[DEBUG] Full LLM Response Message:
+ {
+  "summary": "The user's computer HDMI port is not functioning, preventing external display connectivity and impacting productivity.",
+  "severity": "NORMAL",
+  "actions_now": [
+    "Verify HDMI cable and port for physical damage or loose connection",
+    "Restart computer and attempt to reconnect HDMI device"
+  ],
+  "next_steps": [
+    "Test with a different HDMI cable and external display",
+    "Update or reinstall display drivers",
+    "Escalate to hardware support if issue persists"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": true,
+  "policy_refs": [
+    "Incident_Triage_Service_Policy.txt#Section3",
+    "Incident_Triage_Service_Policy.txt#Section4"
+  ],
+  "Alternative": "If urgent, suggest using wireless display options or USB-to-HDMI adapters as a temporary workaround."
+}
+
+[DEBUG] Full LLM Response Message:
+ None
+
+=== Workflow Results ===
+Summary : The user's computer HDMI port is not functioning, preventing external display connectivity and impacting productivity.
+Severity: NORMAL
+
+Actions Now:
+  1. Verify HDMI cable and port for physical damage or loose connection
+  2. Restart computer and attempt to reconnect HDMI device
+
+Next Steps:
+  1. Test with a different HDMI cable and external display
+  2. Update or reinstall display drivers
+  3. Escalate to hardware support if issue persists
+
+Estimated Time (hours): 2.0
+
+Policy References:
+  - Incident_Triage_Service_Policy.txt#Section3
+  - Incident_Triage_Service_Policy.txt#Section4
+
+Incident triaged and logged (no escalation tool used).
+
+=== Workflow Complete ===
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp> & "C:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/.venv/Scripts/python.exe" "c:/Users/chenling/OneDrive - Government of Ontario/Documents/0MCCSS/vsc_repo/bootcamp/workshop2/exercises/ex08_enhanced.py"
+=================Loading tools and libraries, may take 1-2 minutes, please wait...
+=== Incident Triage with Function Calling ===
+This demo uses:
+- LLM function calling (tool_choice)
+- Automatic tool invocation (single step, teaching version)
+- Crisis escalation tool triggered on CRISIS severity
+
+Describe the incident: my db server is down
+
+=== Calling LLM with Function Calling ===
+(Using temperature=0.1, max_tokens=500)
+Loading policy index from disk...
+Loading MiniLM embedding model from: C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp\workshop2\rag_demo\data\models
+
+[INFO] Sending request to LLM with function calling...
+
+
+--- SYSTEM MESSAGE ---
+
+You are an enterprise AI assistant for IT and operations teams. Your purpose is to triage incidents and service requests accurately and consistently.
+
+Core principles:
+- Always prioritize INTERNAL POLICIES provided in the user message.
+- Respond with a single, valid JSON object that other systems can safely consume.
+- Do not include explanations, comments, or extra text outside the JSON.
+
+Behavior:
+- Be concise, actionable, and policy-aligned.
+- If policies are unclear, choose the safer higher severity and indicate that a policy update is required.
+
+Output:
+- Follow the schema provided in the user message.
+- Ensure the JSON is syntactically correct and contains all required fields.
+
+
+--- USER MESSAGE ---
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+[Incident_Triage_Service_Policy.txt / Section 11]
+- Severity CRISIS:
+  - Major impact or outage of a critical system.
+  - Affects many users or core business processes.
+  - Example: production database completely down, confirmed security breach.
+
+[Incident_Triage_Service_Policy.txt / Section 5]
+The triage service receives a short free-text description of an issue, such as:
+- "Printer not working in office 3B"
+- "API response time is very slow, timing out after 30 seconds"
+- "Database server is completely down, no connections possible"
+- "Security breach detected in production environment"
+
+[Metrics_and_Audit_Log_Policy.txt / Section 17]
+- “Validating input…”
+- “Building AI prompt…”
+- “Calling model…”
+- “LLM unavailable – falling back to rules…”
+- “Triggering email notification to incident list…”
+- “✅ Email sent successfully”
+- “No email required for NORMAL severity.”
+- “Done.”
+
+[INCIDENT_DESCRIPTION]
+my db server is down
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ],
+  "Alternative": "If you are very confident, you may suggest alternative way to suggest temporary solution if user can not wait."
+}
+
+
+[DEBUG] Full LLM Response Message:
+ None
+
+[DEBUG] Full LLM Response Message:
+ [ChatCompletionMessageFunctionToolCall(id='call_oA8Tq4q7ctiuAy4uoF5drJHr', function=Function(arguments='{"summary":"Database server is down, causing a major outage and preventing all connections. This impacts critical business operations and likely affects many users.","severity":"CRISIS","actions":["Notify on-call team immediately","Begin investigation to restore database service","Communicate outage status to affected users"]}', name='escalate_crisis'), type='function')]
+
+[CALLING] escalate_crisis
+
+[TOOL] escalate_crisis called
+       Ticket ID: TICKET-C9E4EB
+       Severity : CRISIS
+       Summary  : Database server is down, causing a major outage and preventing all connections. This impacts critical business operations and likely affects many users.
+[EMAIL] Alert:
+        Subject: [CRISIS] TICKET-C9E4EB - Database server is down, causing a major outage and preventing all connections. This impacts critical business operations and likely affects many users.
+          Incident ID: TICKET-C9E4EB
+          Severity   : CRISIS
+
+          Required Actions:
+            1. Notify on-call team immediately
+            2. Begin investigation to restore database service
+            3. Communicate outage status to affected users
+
+=== Workflow Results ===
+Summary : Database server is down, causing a major outage and preventing all connections. This impacts critical business operations and likely affects many users.
+Severity: CRISIS
+
+Actions Now:
+  1. Notify on-call team immediately
+  2. Begin investigation to restore database service
+  3. Communicate outage status to affected users
+
+Next Steps: (none)
+
+Policy References: (none)
+
+✓ Crisis escalated - Ticket: TICKET-C9E4EB
+
+=== Workflow Complete ===
+(.venv) PS C:\Users\chenling\OneDrive - Government of Ontario\Documents\0MCCSS\vsc_repo\bootcamp>

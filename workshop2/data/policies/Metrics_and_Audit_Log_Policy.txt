@@ -1,0 +1,69 @@
+Metrics and Audit Log Policy
+Version: 1.0
+Owner: IT Operations Analytics
+
+This policy defines which metrics and logs must be captured by the AI-powered incident triage service and how they are used as long-term memory.
+
+
+Section 1: Core Metrics
+
+The triage service must maintain at least the following metrics:
+
+- totalTickets:
+  - Count of all tickets processed by the service.
+
+- crises:
+  - Count of tickets where severity is CRISIS.
+
+- avgResponseTime:
+  - Average time in milliseconds to process a ticket (from submission to AI result), rounded to the nearest whole number.
+
+- successRate:
+  - Percentage of tickets processed without internal errors.
+  - Can be computed as 100 minus the percentage of failures over totalTickets.
+
+These metrics are displayed in the Metrics & Status panel of the dashboard and help stakeholders understand how the system behaves over time.
+
+
+Section 2: Triage History and Long-Term Memory
+
+For each ticket, the triage service should append a compact record to a long-term log, including:
+
+- ticket_id
+- timestamp
+- summary
+- severity
+- severity_score or related numeric indicator
+
+In the RAG workshop, this long-term memory is stored in a JSONL file that can later be used to:
+
+- Audit past decisions.
+- Analyze patterns (for example, how often CRISIS incidents occur).
+- Compare AI recommendations with real-world outcomes.
+
+
+Section 3: Processing Log
+
+The triage service should maintain a per-ticket processing log with messages such as:
+
+- “Validating input…”
+- “Building AI prompt…”
+- “Calling model…”
+- “LLM unavailable – falling back to rules…”
+- “Triggering email notification to incident list…”
+- “✅ Email sent successfully”
+- “No email required for NORMAL severity.”
+- “Done.”
+
+Each log entry may include a timestamp, message, and type (info, warning, error, success).
+
+The processing log helps developers and operators understand how a decision was made and can be surfaced in the UI for educational purposes and debugging.
+
+
+Section 4: Relationship to the RAG Knowledge Base
+
+While the metrics and audit log do not directly define the policy content used in RAG, they are part of the overall knowledge lifecycle:
+
+- The knowledge base (policy documents) guides how severity, alerts, and actions should work.
+- The metrics and logs show how those policies are being applied in real incidents.
+- Together, they support continuous improvement of both runbooks and AI prompts.

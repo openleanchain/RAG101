@@ -1,0 +1,48 @@
+Alerting and Notification Policy
+Version: 1.0
+Owner: IT Service Management
+
+This policy describes when the triage service should trigger alerts, what channels to use, and how alerts relate to severity levels.
+
+
+Section 1: When to Send Alerts
+
+The triage service must decide whether to trigger alert notifications based on severity:
+
+- For severity NORMAL:
+  - Do not send email alerts.
+  - Record the incident in the ticket history and metrics only.
+
+- For severity ALERT:
+  - Send an email alert to the standard incident distribution list.
+  - Include a short summary, ticket_id, severity, and description.
+  - Log that an alert was sent so it appears in the “alerts_sent” list.
+
+- For severity CRISIS:
+  - Send email alerts to both the standard incident list and crisis escalation list.
+  - Use strong visual markers (for example, 🚨 in the subject) to signal urgency.
+  - Ensure the alert includes the highest priority level (P0) and a clear call to action.
+
+
+Section 2: Alert Content
+
+Alert emails should contain at least:
+
+- Ticket ID
+- Severity
+- Short summary of the issue
+- Description of what was reported
+- Basic recommended actions or pointers to runbooks
+
+The triage service may also include metadata such as the AI model used and timestamp in the alert context.
+
+
+Section 3: Logging Alerts in the System
+
+Every alert sent by the triage service must be reflected in the structured response so that:
+
+- The front-end can show an “alerts_sent” list with type, status, subject, message, recipients, and provider.
+- The processing log can indicate that an email notification was triggered (for example, “Triggering email notification to incident list…” followed by “✅ Email sent successfully”).
+- Metrics such as totalTickets, crises, and successRate can be updated accordingly.
+
+Alerts and alert failures are part of the long-term audit trail and should be preserved for later review.

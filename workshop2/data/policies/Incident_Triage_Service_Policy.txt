@@ -1,0 +1,54 @@
+Incident Triage Service Policy
+Version: 1.0
+Owner: IT Operations / AI Platform
+
+This policy describes how our AI-powered incident triage service should classify incidents, produce structured results, and support IT repair workflows.
+
+It applies to all tickets created in the IT Repair Hero Academy demos and any future extensions of the triage service.
+
+
+Section 1: Incident Inputs and Scenarios
+
+The triage service receives a short free-text description of an issue, such as:
+- "Printer not working in office 3B"
+- "API response time is very slow, timing out after 30 seconds"
+- "Database server is completely down, no connections possible"
+- "Security breach detected in production environment"
+
+Each description is turned into a ticket with a unique ticket_id and processed by the triage logic and AI model.
+
+
+Section 2: Severity Levels
+
+The triage service must assign exactly one severity value to every incident:
+
+- Severity NORMAL:
+  - Minor or routine issues.
+  - Limited to a small number of users or a non-critical system.
+  - Example: single user printer issues, minor UI glitches, general “how to” questions.
+
+- Severity ALERT:
+  - Noticeable impact on business operations.
+  - Affects multiple users, a team, or an important but non-core system.
+  - Example: API responses are very slow or timing out for many users.
+
+- Severity CRISIS:
+  - Major impact or outage of a critical system.
+  - Affects many users or core business processes.
+  - Example: production database completely down, confirmed security breach.
+
+
+Section 3: Triage Output Fields
+
+For every ticket, the triage service must return a structured result with at least these fields:
+
+- severity: one of NORMAL, ALERT, or CRISIS.
+- summary: a short description of the issue and impact.
+- category: a high-level area, such as Database, Network, Security, Compute, or General.
+- priority: a label such as P0, P1, or P2 based on severity.
+- impact: brief text describing business impact (HIGH, MEDIUM, or LOW).
+- actions_taken: list of immediate actions the system has already performed (for example, “Ticket created in system”, “Notifications sent to 2 recipient(s)”).
+- next_steps: list of recommended follow-up actions for humans or other systems.
+- estimated_resolution: a rough time window for resolving the issue (for example, “15-30 minutes”, “1-2 hours”, or “4-8 hours”).
+
+These fields are used by the web UI, metrics dashboard, and history view to present a consistent, machine-readable incident record.

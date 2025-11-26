@@ -1,0 +1,49 @@
+You will receive:
+1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
+2) An INCIDENT DESCRIPTION (what the user or system reported).
+
+Follow the rules and JSON schema defined in your system instructions.
+
+[INTERNAL_POLICIES]
+{policy_context}
+
+[INCIDENT_DESCRIPTION]
+{incident_text}
+
+Your tasks:
+1. Read the INTERNAL POLICIES and the INCIDENT DESCRIPTION carefully.
+2. Decide the incident severity using the policy definitions and your severity rules from the system message.
+3. Fill out the JSON fields as specified in the system message:
+   - "summary": 1–3 sentences summarizing the issue and impact.
+   - "severity": one of "NORMAL", "ALERT", or "CRISIS".
+   - "actions_now": immediate concrete actions.
+   - "next_steps": follow-up actions.
+   - "estimated_time_hours": numeric estimate of total time to resolve.
+   - "requires_policy_update": true if policies are unclear or missing, otherwise false.
+   - "policy_refs": list of policy section references you relied on (e.g. "IncidentPolicy.txt#sec1").
+
+Important:
+- Prefer the INTERNAL POLICIES over your own assumptions.
+- If policies do not cover the situation, be honest, choose a reasonable severity, and set "requires_policy_update": true.
+- Do not invent policy names, SLAs, or steps that conflict with the provided policies.
+
+Return your answer as a single JSON object in this format (no comments, no extra text):
+
+{{
+  "summary": "short summary of the issue and impact",
+  "severity": "NORMAL",
+  "actions_now": [
+    "first immediate action",
+    "second immediate action"
+  ],
+  "next_steps": [
+    "first follow-up step",
+    "second follow-up step"
+  ],
+  "estimated_time_hours": 2.0,
+  "requires_policy_update": false,
+  "policy_refs": [
+    "IncidentPolicy.txt#sec1",
+    "EscalationGuide.txt#sec2"
+  ]
+}}

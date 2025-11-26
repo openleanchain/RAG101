@@ -26,6 +26,9 @@ def main() -> None:
 
         # 2) Build messages
         messages = build_triage_messages(incident, policy_chunks)
+        for msg in messages:
+            print(f"\n--- {msg['role'].upper()} MESSAGE ---")
+            print(msg["content"])
 
         # 3) Call LLM
         llm_result = call_triage_llm(messages)

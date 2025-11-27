@@ -45,5 +45,7 @@ Return your answer as a single JSON object in this format (no comments, no extra
   "policy_refs": [
     "IncidentPolicy.txt#sec1",
     "EscalationGuide.txt#sec2"
-  ]
+  ],
+  "Alternative": "If you are very confident, you may suggest an alternative temporary solution if the user cannot wait."
 }}
+

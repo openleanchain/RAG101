@@ -2,7 +2,7 @@ You will receive:
 1) INTERNAL POLICIES (selected snippets from our enterprise policies and procedures).
 2) An INCIDENT DESCRIPTION (what the user or system reported).
 
-Follow the rules and JSON schema defined in your system instructions.
+Follow the rules and JSON schema defined below.
 
 [INTERNAL_POLICIES]
 {policy_context}
@@ -48,4 +48,5 @@ Return your answer as a single JSON object in this format (no comments, no extra
   ],
   "Alternative": "If you are very confident, you may suggest an alternative temporary solution if the user cannot wait."
 }}
+
 
